@@ -20,7 +20,7 @@ body {
 
 #denicov{ 
     float: left;
-    width: 47%;
+    width: 46%;
     border: 2px solid black;
     background: linear-gradient(to top, #999,  lightgrey);
     border-radius: 25px;
@@ -31,7 +31,7 @@ body {
 
 #dunaev{
     float: right;
-    width: 47%;
+    width: 46%;
     border: 2px solid black;
     background: linear-gradient(to top, #999,  lightgrey);
     border-radius: 25px;
