@@ -1,7 +1,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.sql.Time" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page import="dataPack.DataForPage"%>
+<%@ page import="srcClass.dataPack.DataForPage"%>
 <%@ page import="java.io.BufferedWriter" %>
 <%@ page import="java.io.BufferedReader" %>
 <%@ page import="java.io.FileReader" %>

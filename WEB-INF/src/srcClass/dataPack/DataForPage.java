@@ -1,6 +1,5 @@
-package dataPack;
+package srcClass.dataPack;
 
-import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
