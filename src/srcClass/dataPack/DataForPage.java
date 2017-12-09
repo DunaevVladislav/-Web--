@@ -1,11 +1,11 @@
-package srcClass.dataPack;
+package dataPack;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DataForPage{
 
-    private static final String path = System.getenv("CATALINA_HOME") + "/webapps/TeamPage/";
+    //private static final String path = System.getenv("CATALINA_HOME") + "/webapps/TeamPage/";
 /*
     static {
         File checkExist = new File(path + "WEB-INF/Data/cntVisitors.txt");
@@ -26,7 +26,7 @@ public class DataForPage{
 
     public static String getDate(){
         Date dateNow = new Date();
-        SimpleDateFormat formatForDate = new SimpleDateFormat("Текущая дата E dd.MM.yyyy '. Текущее время' hh:mm:ss zzz");
+        SimpleDateFormat formatForDate = new SimpleDateFormat("Текущая дата E dd.MM.yyyy '. текущее время ' hh:mm:ss zzz");
         return formatForDate.format(dateNow);
     }
 

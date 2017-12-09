@@ -1,11 +1,8 @@
-<%@ page import="java.util.Date" %>
-<%@ page import="java.sql.Time" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page import="srcClass.dataPack.DataForPage"%>
-<%@ page import="java.io.BufferedWriter" %>
-<%@ page import="java.io.BufferedReader" %>
-<%@ page import="java.io.FileReader" %>
-<%@ page import="java.io.File" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="dataPack.*" %>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -53,7 +50,8 @@
         <p><b>Моя будущая профессия:</b> backend разработчик</p>
     </div>
     <%=
-        DataForPage.getDate()
+    DataForPage.getDate()
+
     %>
 </div>
 </body>
