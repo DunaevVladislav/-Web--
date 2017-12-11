@@ -1,12 +1,14 @@
 package dataPack;
 
+import javax.servlet.Servlet;
+import javax.servlet.ServletContext;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.*;
 
 public class DataForPage{
 
-    //private static final String path = System.getenv("CATALINA_HOME") + "/webapps/TeamPage/";
+    public static final String path = System.getenv("CATALINA_HOME") + "/webapps/TeamPage/";
 /*
     static {
         File checkExist = new File(path + "WEB-INF/Data/cntVisitors.txt");
@@ -31,9 +33,16 @@ public class DataForPage{
 
     public static String Conn() throws ClassNotFoundException, SQLException
     {
+      //  if (true) return DataForPage.class.getProtectionDomain().getCodeSource().getLocation().getFile()
         conn = null;
+     //   if (true) return
         Class.forName("org.sqlite.JDBC");
-        conn = DriverManager.getConnection("jdbc:sqlite:TEST1.s3db");statmt = conn.createStatement();
+        try{
+            conn = DriverManager.getConnection("jdbc:sqlite://" + DataForPage.class.getProtectionDomain().getCodeSource().getLocation().getPath().replaceAll("%20", " ") + "TEST1.db", "root", "");
+        } catch(SQLException sqlEx) {
+            return "jdbc:sqlite:" + DataForPage.class.getProtectionDomain().getCodeSource().getLocation().getPath().replaceFirst("%20", " ") + "../TEST1.db";
+        };
+        statmt = conn.createStatement();
         statmt.execute("CREATE TABLE if not exists 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");
         statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Petya', 125453); ");
         statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Vasya', 321789); ");

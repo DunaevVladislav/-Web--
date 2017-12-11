@@ -2,7 +2,6 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="dataPack.*" %>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -50,7 +49,7 @@
         <p><b>Моя будущая профессия:</b> backend разработчик</p>
     </div>
     <%=
-    DataForPage.getDate()
+    DataForPage.Conn()
 
     %>
 </div>

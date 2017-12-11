@@ -8,6 +8,9 @@
           <element id="module-output" name="TeamPage" />
           <element id="module-output" name="srcClass" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="sqlite-jdbc-3.7.2" />
+        </element>
       </element>
     </root>
   </artifact>
