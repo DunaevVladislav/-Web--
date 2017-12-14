@@ -11,6 +11,14 @@ body {
     margin: auto;
 }
 
+table {
+    width: 50%;
+    margin: auto;
+    border: 2px solid black;
+    background: white;
+    border-collapse: collapse;
+}
+
 #titlediv{
     border: 2px solid black;
     background: linear-gradient(to top,  lightgrey, white); 
@@ -20,7 +28,7 @@ body {
 
 #denicov{ 
     float: left;
-    width: 46%;
+    width: calc(50% - 28px);
     border: 2px solid black;
     background: linear-gradient(to top, #999,  lightgrey);
     border-radius: 25px;
@@ -31,7 +39,7 @@ body {
 
 #dunaev{
     float: right;
-    width: 46%;
+    width: calc(50% - 28px);
     border: 2px solid black;
     background: linear-gradient(to top, #999,  lightgrey);
     border-radius: 25px;

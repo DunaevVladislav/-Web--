@@ -16,13 +16,13 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>test</servlet-name>
+        <servlet-name>mainServlet</servlet-name>
         <servlet-class>MainServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>test</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>mainServlet</servlet-name>
+        <url-pattern></url-pattern>
     </servlet-mapping>
 
 </web-app>

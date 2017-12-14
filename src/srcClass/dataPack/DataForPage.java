@@ -6,38 +6,41 @@ import java.util.Date;
 
 public class DataForPage{
 
-    public static String path = DataForPage.class.getProtectionDomain().getCodeSource().getLocation().getPath().replaceFirst("%20", " ") + "../TEST1.db";
+    private static String path = DataForPage.class.getProtectionDomain().getCodeSource().getLocation().getPath().replaceFirst("%20", " ") + "../../";
+    public static String getPath() {
+        return path;
+    }
 
-    public static Connection conn;
-    public static Statement statmt;
+    private Connection conn;
+    public Statement statmt;
 
-    public static void initial() throws SQLException, ClassNotFoundException{
+    public DataForPage() throws SQLException, ClassNotFoundException{
         Class.forName("org.sqlite.JDBC");
-        conn = DriverManager.getConnection("jdbc:sqlite://" + path);
+        conn = DriverManager.getConnection("jdbc:sqlite://" + path + "/WEB-INF/database.db");
         statmt = conn.createStatement();
         statmt.execute("CREATE TABLE if not exists 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'ip' text, 'time' text);");
     }
 
-    public static void insert(String ip) throws SQLException{
-        statmt.execute("INSERT INTO 'users' ('ip', 'time') VALUES ('" + ip +"', '" + (new Date()).toString() +"')");
+    public  void insert(String ip) throws SQLException{
+        Date date = new Date();
+        statmt.execute("INSERT INTO 'users' ('ip', 'time') VALUES ('" + ip +"', '" + date.toString() +"')");
     }
 
 
-    public static int getCountUsers() throws SQLException{
+    public int getCountUsers() throws SQLException{
         ResultSet resSet = statmt.executeQuery("SELECT COUNT(*) FROM users");
         if (resSet.next())  return resSet.getInt(1);
         else return 0;
-
     }
 
 
-    public static String getDate(){
+    public String getDate(){
         Date dateNow = new Date();
-        SimpleDateFormat formatForDate = new SimpleDateFormat("Текущая дата E dd.MM.yyyy '. текущее время ' hh:mm:ss zzz");
+        SimpleDateFormat formatForDate = new SimpleDateFormat("Текущая дата E dd.MM.yyyy '. Tекущее время ' HH:mm:ss zzz");
         return formatForDate.format(dateNow);
     }
 
-    public static void close() throws SQLException{
+    public void finalize() throws SQLException{
         conn.close();
         statmt.close();
     }
