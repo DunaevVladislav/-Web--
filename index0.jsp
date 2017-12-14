@@ -1,7 +1,4 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="dataPack.*" %>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -48,10 +45,6 @@
         </ol>
         <p><b>Моя будущая профессия:</b> backend разработчик</p>
     </div>
-    <%=
-    DataForPage.Conn()
-
-    %>
 </div>
 </body>
 </html>
