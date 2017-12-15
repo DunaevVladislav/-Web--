@@ -4,16 +4,26 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+/**
+ * сервлет страницы пользователей
+ */
 public class ServletVisitors extends HttpServlet {
 
-
+    /**
+     * данные страницы
+     */
     private DataForPage data;
 
+    /**
+     * выводит html-таблицу с пользователями
+     * @param out - объект PrintWriter, для вывода в html
+     * @throws SQLException
+     */
     public void outUsersTable(PrintWriter out) throws SQLException{
         ResultSet resSet = data.statmt.executeQuery("SELECT * FROM users");
         out.println("  <table border='1'>\n" +
@@ -30,11 +40,17 @@ public class ServletVisitors extends HttpServlet {
         resSet.close();
     }
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
-        // установить MIME-type и кодировку ответа
         response.setContentType("text/html; charset=UTF8");
         PrintWriter out = response.getWriter();
 
@@ -65,6 +81,7 @@ public class ServletVisitors extends HttpServlet {
         } finally {
             out.close();
         }
+
         try {
             data.finalize();
         } catch (SQLException ignored){};
